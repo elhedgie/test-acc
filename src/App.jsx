@@ -1,7 +1,6 @@
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import style from "./App.module.css";
-import Login from "./pages/login/login";
-import Profile from "./pages/profile/profile";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./pages/login/Login";
+import Profile from "./pages/profile/Profile";
 
 function App() {
   return (

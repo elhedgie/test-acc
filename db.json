@@ -1,0 +1,106 @@
+{
+  "users": [
+    {
+      "login": "hog123",
+      "password": "pooz",
+      "isLogged": true
+    },
+    {
+      "login": "jesus123",
+      "password": "123456",
+      "isLogged": true
+    }
+  ],
+  "login": [
+    {
+      "login": "gg",
+      "password": "ggg",
+      "isLogged": true,
+      "id": "5658c30c-b3db-4146-8e5c-940f110523fb"
+    },
+    {
+      "login": "hog123",
+      "password": "pooz",
+      "isLogged": true,
+      "id": "6552fc9c-0fe0-457c-9432-fa953aeaa46e"
+    },
+    {
+      "login": "hog123",
+      "password": "pooz",
+      "isLogged": true,
+      "id": "b7676f4e-4471-42b9-b4b2-470be43acee1"
+    },
+    {
+      "login": "hog123",
+      "password": "pooz",
+      "isLogged": true,
+      "id": "50a86aa3-cc41-4b75-886a-c128e93a2e3f"
+    },
+    {
+      "login": "hog123",
+      "password": "pooz",
+      "isLogged": true,
+      "id": "a87a3d70-cc91-470a-bb69-c0fdd19bfa7f"
+    },
+    {
+      "login": "hog123",
+      "password": "pooz",
+      "isLogged": true,
+      "id": "2923b4a3-3e02-4b52-a023-27616faf8152"
+    },
+    {
+      "login": "hog123",
+      "password": "pooz",
+      "isLogged": true,
+      "id": "2aea3318-19c1-4529-a467-81c93c78c706"
+    },
+    {
+      "login": "hog123",
+      "password": "pooz",
+      "isLogged": true,
+      "id": "e7134d81-a26c-4af4-a965-84047e89aa5c"
+    },
+    {
+      "login": "hog123",
+      "password": "pooz",
+      "isLogged": true,
+      "id": "198c2ad8-130c-405f-8b37-6df92721165f"
+    },
+    {
+      "login": "hog123",
+      "password": "pooz",
+      "isLogged": true,
+      "id": "15d1a1f1-db27-45f3-b4a6-7725b30e8463"
+    },
+    {
+      "login": "hog123",
+      "password": "pooz",
+      "isLogged": true,
+      "id": "80fd4d78-1d8c-4bf5-93d6-b126f437828a"
+    },
+    {
+      "login": "hog123",
+      "password": "pooz",
+      "isLogged": true,
+      "id": "d900cbb3-58d8-498a-8c29-4d897dedd5f9"
+    },
+    {
+      "login": "hog123",
+      "password": "pooz",
+      "isLogged": true,
+      "id": "6c648451-7019-4cc6-a1cb-340371cfe9bd"
+    },
+    {
+      "login": "hog123",
+      "password": "pooz",
+      "isLogged": true,
+      "id": "f0023771-262b-4e6e-aceb-4b81f5ebeef8"
+    },
+    {
+      "login": "hog123",
+      "password": "pooz",
+      "isLogged": true,
+      "id": "04bb2adf-7233-44a8-94d5-ff8f8a513899"
+    }
+  ]
+}

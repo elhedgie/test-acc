@@ -9,7 +9,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #163730;
 }
-
+ul {
+  margin: 0;
+  padding: 0;
+}
 @font-face {
   font-family: "Exo";
   src: url("fonts/Exo2-Bold_1.woff") format("woff"),

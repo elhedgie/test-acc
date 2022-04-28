@@ -1,7 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-let defaultState = {
-  items: [
+let defaultState = [
     {
       id: uuidv4(),
       name: "Liza Shaw",
@@ -17,16 +16,14 @@ let defaultState = {
       name: "Brandon Broom",
       number: "044-987-373",
     },
-  ],
-};
+  ]
 
 export default function itemsReducer(state = defaultState, action) {
   switch (action.type) {
     case "ADD":
-      return (state = { items: [...state.items, action.payload] });
+      return (state = [...state, action.payload]);
     case "SEARCH":
       return { ...state, items: action.payload };
-    case "EDIT":
     case "DELETE":
       return { ...state, items: action.payload };
     default:

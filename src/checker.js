@@ -1,7 +1,6 @@
 export const checker = (res, getState, dispatch) => {
-  // допустим у тебя массив с логинами и паролями лежит где-то здесь в Redux "store.testMocks.credentialsArray"
   console.log(res.res);
-  const isLoginAndPasswordFinded = getState.users.users.find(
+  const isLoginAndPasswordFinded = getState.users.find(
     (item) => item.login === res.res.login && item.password === res.res.password
   );
   if (isLoginAndPasswordFinded) {

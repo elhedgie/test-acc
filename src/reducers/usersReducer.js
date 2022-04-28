@@ -1,14 +1,11 @@
-let defaultState = {
-  users: [],
-};
+let defaultState = []
 
 export default function usersReducer(state = defaultState, action) {
   switch (action.type) {
     case "FETCH":
-      return (defaultState = {
-        ...defaultState,
-        users: action.payload.users,
-      });
+      return (defaultState = [
+        ...defaultState, ...action.payload,
+      ])
     default:
       return state;
   }

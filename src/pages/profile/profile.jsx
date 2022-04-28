@@ -10,7 +10,7 @@ import style from "./profile.module.css";
 export default function Profile() {
   const [searchValue, setSearchValue] = useState("");
   const [filteredList, setFilteredList] = useState([]);
-  let list = useSelector((state) => state.items.items);
+  let list = useSelector((state) => state.items);
   useEffect(() => {
     setFilteredList(list.filter((elem) => elem.name.includes(searchValue) || elem.number.includes(searchValue) ));
   }, [searchValue, list]);

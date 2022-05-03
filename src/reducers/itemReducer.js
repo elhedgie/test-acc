@@ -21,11 +21,11 @@ let defaultState = [
 export default function itemsReducer(state = defaultState, action) {
   switch (action.type) {
     case "ADD":
-      return (state = [...state, action.payload]);
+      return state = [...state, action.payload];
     case "SEARCH":
-      return { ...state, items: action.payload };
+      return  [...action.payload];
     case "DELETE":
-      return { ...state, items: action.payload };
+      return  [...action.payload];
     default:
       return state;
   }

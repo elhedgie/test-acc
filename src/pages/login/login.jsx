@@ -38,7 +38,7 @@ export default function Login() {
       })
         .then((res) => res.json())
         .then((res) => checker(res, getState, dispatch))
-        .catch(() => dispatch({ type: "AUTH_FAIL" }));
+        .catch(() => dispatch({ type: "AUTH_FAIL"}));
     };
   }
   return auth ? (

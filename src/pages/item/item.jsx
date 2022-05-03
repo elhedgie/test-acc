@@ -20,7 +20,7 @@ function Item(props) {
     return () => {
       let res = store
         .getState()
-        .items.items.filter((item) => item.id !== props.item.id);
+        .items.filter((item) => item.id !== props.item.id);
       dispatch({ type: "DELETE", payload: res });
     };
   };

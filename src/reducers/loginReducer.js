@@ -10,10 +10,9 @@ export default function loginReducer(state = defaultState, action) {
     case "AUTH_LOGIN":
       return (defaultState = {
         ...defaultState,
-        id: action.payload.id,
         login: action.payload.login,
         password: action.payload.password,
-        isLogged: action.payload.isLogged,
+        isLogged: !action.payload.isLogged,
       });
     case "AUTH_FAIL":
       alert("Нет такого пользователя!");

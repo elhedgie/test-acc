@@ -1,10 +1,12 @@
-export default function fetchUsers() {
-  return (dispatch) => {
+import { fetchingUsers } from "../reducers/actionCreators/actionCreators";
+
+export default function fetchUsers(dispatch) {
+
+  
     fetch("http://localhost:3001/users")
       .then((res) => res.json())
-      .then((json) => dispatch({ type: "FETCH", payload: json }))
+      .then((json) => dispatch(fetchingUsers(json)))
       .catch(function () {
         console.log("error");
-      });
-  };
+      })
 }

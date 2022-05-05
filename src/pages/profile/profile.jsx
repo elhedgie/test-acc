@@ -3,14 +3,16 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import AddForm from "../addForm/AddForm";
-import Item from "../item/Item";
+import { logOut } from "../../reducers/actionCreators/actionCreators";
+import AddForm from "./addForm/AddForm";
+import Item from "./item/Item";
 import style from "./profile.module.css";
 
 export default function Profile() {
   const [searchValue, setSearchValue] = useState("");
   const [filteredList, setFilteredList] = useState([]);
   let list = useSelector((state) => state.items);
+  const log = useSelector(state => state.login.isLogged)
   useEffect(() => {
     setFilteredList(list.filter((elem) => elem.name.includes(searchValue) || elem.number.includes(searchValue) ));
   }, [searchValue, list]);
@@ -20,15 +22,16 @@ export default function Profile() {
   const searchFunc = (e) => {
     setSearchValue(e.target.value);
   };
-  let auth;
-  auth = useSelector((state) => state.login.isLogged);
+
+  const auth = localStorage.getItem('loggedIn') ? JSON.parse(localStorage.getItem('loggedIn')): log
 
   return auth ? (
     <div className={style.container}>
       <nav className={style.nav}>
         <Link
           onClick={() => {
-            dispatch({ type: "AUTH_LOGOUT" });
+            localStorage.removeItem('loggedIn')
+            dispatch(logOut());
             push("/");
           }}
           className={style.link}

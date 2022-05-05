@@ -1,46 +1,40 @@
-import { useMemo, useState } from "react";
-import { useStore } from "react-redux";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 import { checker } from "../../checker";
 import idGenerator from "../../idGenerator";
-import LoginButton from "../loginButton/LoginButton.jsx";
 import fetchUsers from "../fetch";
 import style from "./login.module.css";
+import Button from "../../common/Button/Button";
+import { logInFailed, logInSuccessful } from "../../reducers/actionCreators/actionCreators";
+
 export default function Login() {
-  const store = useStore();
-  let getState = store.getState();
   let dispatch = useDispatch();
-  useMemo(() => {
-    dispatch(fetchUsers());
+  useEffect(() => {
+    dispatch((dispatch)=> {return fetchUsers(dispatch)});
   }, []);
-  let auth;
-  auth = useSelector((state) => state.login.isLogged);
+  const auth = useSelector((state) => state.login.isLogged);
   const [loginState, setLoginState] = useState("");
   const [passwordState, setPasswordState] = useState("");
   function logIn(e) {
     e.preventDefault();
     return () => {
-      fetch("http://localhost:3001/login", {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify(
-          idGenerator({
-            login: loginState,
-            password: passwordState,
-            isLogged: true,
-          })
-        ),
-      })
-        .then((res) => res.json())
-        .then((res) => checker(res, getState, dispatch))
-        .catch(() => dispatch({ type: "AUTH_FAIL" }));
-    };
+      fetch(`http://localhost:3001/users?login=${loginState}&password=${passwordState}`)
+        .then(res=>res.json())
+        .then(res=> checker(res))
+    }
   }
+
+  function checker(result) {
+    if(result.length!==0) {
+      localStorage.setItem('loggedIn', true)
+      dispatch(logInSuccessful({login: loginState, pasword: passwordState, isLogged: false }))
+    } else {
+      dispatch(logInFailed())
+    }
+  }
+
   return auth ? (
     <Navigate to="/profile" />
   ) : (
@@ -68,7 +62,7 @@ export default function Login() {
             value={passwordState}
             type="password"
           />
-          <LoginButton func={(e) => dispatch(logIn(e))}>Войти</LoginButton>
+          <Button type='submit' onClick={(e) => dispatch(logIn(e))}>Войти</Button>
         </form>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+import { addItem } from "../../../reducers/actionCreators/actionCreators";
 import style from "./addForm.module.css";
 
 function AddForm() {
@@ -9,10 +10,7 @@ function AddForm() {
   let dispatch = useDispatch();
   const addContact = () => {
     return () => {
-      dispatch({
-        type: "ADD",
-        payload: { id: uuidv4(), name: nameState, number: numberState },
-      });
+      dispatch(addItem({ id: uuidv4(), name: nameState, number: numberState }))
     };
   };
   return (

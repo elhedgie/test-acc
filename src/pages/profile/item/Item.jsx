@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { store } from "../../reducers/index.js";
+import { store } from "../../../reducers/index.js";
 import EditForm from "../editForm/EditForm.jsx";
-import ProfileButton from "../profileButton/ProfileButton.jsx";
+import Button from "../../../common/Button/Button.jsx";
 import style from "./item.module.css";
+import { deleteItem } from "../../../reducers/actionCreators/actionCreators.js";
 
 function Item(props) {
   const [visibility, setVisibility] = useState(false);
@@ -21,7 +22,7 @@ function Item(props) {
       let res = store
         .getState()
         .items.filter((item) => item.id !== props.item.id);
-      dispatch({ type: "DELETE", payload: res });
+      dispatch(deleteItem(res));
     };
   };
   return (
@@ -48,10 +49,10 @@ function Item(props) {
           </span>
         </div>
         <div className={style.buttonBlock}>
-          <ProfileButton func={(e) => editFunc(e)}>Редактировать</ProfileButton>
-          <ProfileButton func={(e) => dispatch(deleteFunc(e))}>
+          <Button type='button' onClick={(e) => editFunc(e)}>Редактировать</Button>
+          <Button type='button' onclick={(e) => dispatch(deleteFunc(e))}>
             Удалить
-          </ProfileButton>
+          </Button>
         </div>
       </div>
     </li>
